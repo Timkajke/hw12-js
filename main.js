@@ -156,9 +156,11 @@ class Employee {
 }
 
 let employers = [
-  new Employee("John1", "Doe1", "5000"),
-  new Employee("John2", "Doe2", "2000"),
-  new Employee("John3", "Doe3", "3000")
+  new Employee("Egor", "Sitkov", "65000"),
+  new Employee("Elena", "Fadeeva", "72000"),
+  new Employee("Timofey", "Retunskikh", "62000"),
+  new Employee("Elena", "Ponomareva", "82000"),
+  new Employee("Alexey", "Batyuk", "162000")
 ];
 
 class EmpTable {
@@ -170,13 +172,10 @@ class EmpTable {
     let table = "<table>";
     for (let i = 0; i < this.arr.length; i++) {
       table += "<tr>";
-
-      for (let key in this.arr[i]) {
-        // key eto name surname salary
+      for (let key in this.arr[i]) { // key - это имя фамилия зарплата
         table += "<td>" + this.arr[i][key] + "</td>";
-        console.log(this.arr[i][key]);
+        //console.log(this.arr[i][key]);
       }
-
       table += "</tr>";
     }
     table += "</table>";
