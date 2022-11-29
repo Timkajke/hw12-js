@@ -137,6 +137,7 @@ document.write('<br></br>');
 document.write(date1.NextDate());
 */
 
+/*
 // Задание 3
 // Реализовать класс Employee, описывающий работника, и со-
 // здать массив работников банка.
@@ -155,7 +156,7 @@ class Employee {
   }
 }
 
-let employers = [
+let employees = [
   new Employee("Egor", "Sitkov", "65000"),
   new Employee("Elena", "Fadeeva", "72000"),
   new Employee("Timofey", "Retunskikh", "62000"),
@@ -169,19 +170,24 @@ class EmpTable {
   }
 
   getHtml() {
-    let table = "<table>";
-    for (let i = 0; i < this.arr.length; i++) {
-      table += "<tr>";
-      for (let key in this.arr[i]) { // key - это имя фамилия зарплата
-        table += "<td>" + this.arr[i][key] + "</td>";
-        //console.log(this.arr[i][key]);
-      }
-      table += "</tr>";
+    document.write("<table><tr>");
+    for (const [key] of Object.entries(this.arr[0])) {
+      document.write('<th>' + key + '</th>');
     }
-    table += "</table>";
-    return table;
+    document.write("</tr>");
+    for (let i = 0; i < this.arr.length; i++) {
+      document.write("<tr>");
+      Object.values(this.arr[i]).forEach(value => {
+        document.write("<td>" + value + "</td>");
+      });
+      document.write("</tr>");
+    }
+    document.write("</table>");
   }
 }
+
+const empTable = new EmpTable(employees);
+empTable.getHtml();
 
 // Задание 4
 // Реализовать класс StyledEmpTable, который наследуется от
@@ -194,12 +200,13 @@ class EmpTable {
 
 class StyledEmpTable extends EmpTable {
   getStyles() {
-    return "<style> table{border:1px solid grey; padding: 15px} td{border-bottom: 1px solid red} </style>";
+    return "<style> table{border:4px solid grey; padding: 15px} td{border: 2px solid black } </style>";
   }
   getHtml() {
     return this.getStyles() + super.getHtml();
   }
 }
 
-let newTable = new StyledEmpTable(employers);
+const newTable = new StyledEmpTable(employees);
 document.write(newTable.getHtml());
+*/
